@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meals | IMMS</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <svg style="margin-right: 8px; color: var(--brand-main)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            IMMS
+        </div>
+        <nav class="sidebar-nav" id="sidebarNav">
+            <a href="dashboard.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span style="margin-left: 10px;">Dashboard</span>
+            </a>
+            <a href="meals.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <span style="margin-left: 10px;">Meals</span>
+            </a>
+            <a href="attendance.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span style="margin-left: 10px;">Attendance</span>
+            </a>
+            <a href="billing.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                <span style="margin-left: 10px;">Billing</span>
+            </a>
+            <a href="inventory.html" id="nav-inventory">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                <span style="margin-left: 10px;">Inventory</span>
+            </a>
+            <a href="reports.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <span style="margin-left: 10px;">Reports</span>
+            </a>
+            <a href="users.html" id="nav-users">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span style="margin-left: 10px;">Users</span>
+            </a>
+            <a href="feedback.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span style="margin-left: 10px;">Feedback</span>
+            </a>
+            <a href="settings.html" id="nav-settings">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span style="margin-left: 10px;">Settings</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" id="logoutLink" style="color:var(--danger);text-decoration:none;font-weight:500;display:flex;align-items:center;padding:.5rem;border-radius:var(--radius-md);transition:background-color 0.15s">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <header class="top-header">
+            <div class="flex items-center gap-4">
+                <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="top-actions">
+                <button class="dark-toggle" id="darkToggleBtn" title="Toggle Theme">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <div style="position:relative; margin-left: 0.5rem;">
+                    <button class="btn-icon" id="notifBtn" title="Notifications">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </button>
+                    <div class="notif-dropdown" id="notifDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 320px; z-index: 50;">
+                        <div class="notif-header" style="padding: 1rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                            <span class="font-semibold text-sm">Notifications</span>
+                            <span onclick="markAllRead()" class="text-xs" style="cursor:pointer; color:var(--brand-main); font-weight: 500;">Mark all as read</span>
+                        </div>
+                        <div id="notifList" style="max-height: 300px; overflow-y: auto;"></div>
+                    </div>
+                </div>
+                <!-- Profile dropdown simulation -->
+                <a href="profile.html" style="text-decoration:none">
+                    <div class="profile-dropdown-btn" id="topProfileBtn">
+                        <div class="avatar-sm" id="topAvatar">U</div>
+                    </div>
+                </a>
+            </div>
+        </header>
+
+        <main class="main-content">
+    <div class="mb-6">
+
+        <h2 class="page-title">Meals Management</h2>
+
+        <p class="page-subtitle">Manage menus and dietary preferences</p>
+
+    </div>
+
+    <!-- Diet filter tags -->
+    <div class="tags-row" style="margin-bottom:1rem" id="dietTagsRow">
+        <span class="tag diet-tag active" id="diet_all" onclick="filterMealsByDiet('all')">All</span>
+        <span class="tag diet-tag veg" id="diet_veg" onclick="filterMealsByDiet('veg')">🟢 Veg</span>
+        <span class="tag diet-tag non-veg" id="diet_non-veg" onclick="filterMealsByDiet('non-veg')">🔴 Non-Veg</span>
+    </div>
+
+    <div class="card">
+        <h3>🍽 Meal Menu</h3>
+        <div class="table-toolbar">
+            <input type="search" id="mealSearchInput" placeholder="Search meals…" style="max-width:260px">
+            <button id="addMealBtn" style="display:none">➕ Add Meal</button>
+        </div>
+        <div class="table-wrapper">
+            <table id="mealsTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Menu Items</th>
+                        <th>Price</th>
+                        <th>Diet</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="mealsTableBody">
+                    <tr><td colspan="6" class="text-muted" style="text-align:center;padding:2rem">Loading…</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </main>
+    </div>
+</div>
+
+<!-- Add/Edit Meal Modal (admin) -->
+<div class="modal" id="mealModal">
+    <div class="modal-content">
+        <span class="close" onclick="document.getElementById('mealModal').style.display='none'">✕</span>
+        <h3 id="mealModalTitle">Add Meal</h3>
+        <form id="mealForm" style="gap:.85rem">
+            <input type="hidden" id="mealId">
+            <div>
+                <label>Date</label>
+                <input type="date" id="mealDate" required>
+            </div>
+            <div>
+                <label>Meal Type</label>
+                <select id="mealType" required>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                </select>
+            </div>
+            <div>
+                <label>Menu Items</label>
+                <textarea id="mealMenuItems" rows="3" placeholder="Rice, Dal, Sabji, Salad…" required></textarea>
+            </div>
+            <div class="grid-2">
+                <div>
+                    <label>Price (₹)</label>
+                    <input type="number" id="mealPrice" min="0" step="0.5" value="50">
+                </div>
+                <div>
+                    <label>Diet Tag</label>
+                    <select id="mealTag">
+                        <option value="veg">Veg</option>
+                        <option value="non-veg">Non-Veg</option>
+                        <option value="mixed">Mixed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit">💾 Save Meal</button>
+                <button type="button" class="btn-secondary" onclick="document.getElementById('mealModal').style.display='none'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Rating Modal -->
+<div class="modal" id="ratingModal">
+    <div class="modal-content">
+        <span class="close" onclick="document.getElementById('ratingModal').style.display='none'">✕</span>
+        <h3>⭐ Rate this Meal</h3>
+        <div class="star-rating" id="starRating">
+            <span data-val="1" onclick="selectStar(1)">★</span>
+            <span data-val="2" onclick="selectStar(2)">★</span>
+            <span data-val="3" onclick="selectStar(3)">★</span>
+            <span data-val="4" onclick="selectStar(4)">★</span>
+            <span data-val="5" onclick="selectStar(5)">★</span>
+        </div>
+        <input type="hidden" id="selectedRating" value="0">
+        <div class="form-actions" style="margin-top:1rem">
+            <button id="submitRatingBtn">Submit Rating</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast-container"></div>
+<div id="confirm-overlay">
+    <div id="confirm-box">
+        <p id="confirm-msg"></p>
+        <div class="form-actions">
+            <button class="btn-danger" id="confirm-yes">Confirm</button>
+            <button class="btn-secondary" id="confirm-no">Cancel</button>
+        </div>
+    </div>
+</div>
+<script src="assets/js/main.js"></script>
+<script>
+// Admin CRUD for meals
+function showMealModal(meal) {
+    document.getElementById('mealModalTitle').textContent = meal ? 'Edit Meal' : 'Add Meal';
+    document.getElementById('mealId').value = meal ? meal.id : '';
+    document.getElementById('mealDate').value = meal ? meal.date : new Date().toISOString().split('T')[0];
+    document.getElementById('mealType').value = meal ? meal.meal_type : 'lunch';
+    document.getElementById('mealMenuItems').value = meal ? meal.menu_items : '';
+    document.getElementById('mealPrice').value = meal ? meal.price : 50;
+    document.getElementById('mealTag').value = meal ? (meal.meal_tag || 'veg') : 'veg';
+    document.getElementById('mealModal').style.display = 'block';
+}
+document.getElementById('mealForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('mealId').value;
+    const payload = {
+        date: document.getElementById('mealDate').value,
+        meal_type: document.getElementById('mealType').value,
+        menu_items: document.getElementById('mealMenuItems').value,
+        price: parseFloat(document.getElementById('mealPrice').value),
+        meal_tag: document.getElementById('mealTag').value,
+    };
+    const url = id ? `/api/meals/${id}` : '/api/meals';
+    const method = id ? 'PUT' : 'POST';
+    const r = await fetch(url, { method, credentials: 'include', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    const res = await r.json();
+    showToast(res.message || (res.success ? 'Saved!' : 'Failed'), res.success ? 'success' : 'danger');
+    if (res.success) { document.getElementById('mealModal').style.display = 'none'; loadMeals(); }
+});
+</script>
+</body>
+</html>
